@@ -3,11 +3,13 @@
 }
 body{
     padding: 40px;
+    background-image: url(../images/africa.jpg);
 }
 #container{
     border: solid 2px papayawhip;
-    width: 700px;
-    height: 500px;
+    width: 1000px;
+    min-height: 400px;
+    height: auto;
     position: relative;
 }
 #formdiv{
@@ -21,9 +23,9 @@ body{
     background-color: cadetblue;
     font-size: 20px;
     margin: 5px;
-    padding: 20px;
-    height: 100px;
-    width: 700px;
+    padding: 10px;
+    min-height: 100px;
+    width: 1000px;
 }
 .animal{
     background-color: cyan;

@@ -1,5 +1,5 @@
 //make an array of starting buttons
-var animalButtons = ["wolf", "elephant", "dog", "sloth", "jaguar",]
+var animalButtons = ["wolf", "elephant", "dog", "sloth", "jaguar", "african painted dog"]
 
 //document ready function
 $(document).ready(function () {
