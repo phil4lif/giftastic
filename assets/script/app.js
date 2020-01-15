@@ -16,15 +16,19 @@ $(document).ready(function () {
         }).then(function (response) {
             var results = response.data;
             console.log(response.data);
+            //writes a for loop that will create a div with an image for each of the results
             for (var i = 0; i < results.length; i++) {
                 var gifDiv = $("<div>");
                 var rating = results[i].rating;
                 var p = $("<p>").text("Rating: " + rating);
                 var animalImage = $("<img>");
                 animalImage.attr("src", results[i].images.fixed_height_still.url);
-                //add a data-still=still to the images
-                animalImage.attr("data-state","still")
+                //add a data-state=still to the images
+                animalImage.attr("data-state", "still")
+                //add another attribute that stores the animated link
                 animalImage.attr("data-animate", results[i].images.fixed_height.url)
+                //add another attribte that stores the still link
+                animalImage.attr("data-still", results[i].images.fixed_height_still.url);
                 //add a class to the animal Image
                 animalImage.addClass("animalimage")
                 gifDiv.prepend(p);
@@ -53,20 +57,18 @@ $(document).ready(function () {
         }
     }
     //create a function for clicking on the images that will start the gif if it is still, and stops the gif if it is not still
-    $(document).on("click",".animalimage", function(){
+    $(document).on("click", ".animalimage", function () {
         console.log("click")
         //create a variable to store the data-state for comparison  
         var state = $(this).attr("data-state")
         //write the if
-        if (state == "still"){
-            $(this).attr("src", $(this).attr("data-animate") );
+        if (state == "still") {
+            $(this).attr("src", $(this).attr("data-animate"));
             $(this).attr("data-state", "animate");
+        } else {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
         }
-
-
-
-
-
     })
     //write a function to take the value of the input and add it to the page
     //on click for the input button
