@@ -21,8 +21,11 @@ $(document).ready(function () {
 
             for (var i = 0; i < results.length; i++) {
                 var gifDiv = $("<div>");
+                var rating = results[i].rating;
+                var p = $("<p>").text("rating: " + rating);
                 var animalImage = $("<img>");
                 animalImage.attr("src", results[i].images.fixed_height.url);
+                gifDiv.prepend(p);
                 gifDiv.prepend(animalImage);
 
                 $("#gifdisplay").prepend(gifDiv);
