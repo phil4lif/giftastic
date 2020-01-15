@@ -19,9 +19,14 @@ $(document).ready(function () {
             for (var i = 0; i < results.length; i++) {
                 var gifDiv = $("<div>");
                 var rating = results[i].rating;
-                var p = $("<p>").text("rating: " + rating);
+                var p = $("<p>").text("Rating: " + rating);
                 var animalImage = $("<img>");
                 animalImage.attr("src", results[i].images.fixed_height_still.url);
+                //add a data-still=still to the images
+                animalImage.attr("data-state","still")
+                animalImage.attr("data-animate", results[i].images.fixed_height.url)
+                //add a class to the animal Image
+                animalImage.addClass("animalimage")
                 gifDiv.prepend(p);
                 gifDiv.prepend(animalImage);
 
@@ -41,12 +46,28 @@ $(document).ready(function () {
             a.addClass("animal");
             // Adding a data-attribute
             a.attr("data-name", animalButtons[i]);
-            // Providing the initial button text
+            // Providing the  button text
             a.text(animalButtons[i]);
             // Adding the button to the buttons-view div
             $("#animalbuttons").append(a);
         }
     }
+    //create a function for clicking on the images that will start the gif if it is still, and stops the gif if it is not still
+    $(document).on("click",".animalimage", function(){
+        console.log("click")
+        //create a variable to store the data-state for comparison  
+        var state = $(this).attr("data-state")
+        //write the if
+        if (state == "still"){
+            $(this).attr("src", $(this).attr("data-animate") );
+            $(this).attr("data-state", "animate");
+        }
+
+
+
+
+
+    })
     //write a function to take the value of the input and add it to the page
     //on click for the input button
     $("#submit").on("click", function (event) {
