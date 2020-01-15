@@ -35,8 +35,9 @@ $(document).ready(function () {
     
     //
     //make a query variable, store my API key in a variable
-    var apiKey ;
-    var queryURL ;
+    
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=WVMqS6EHSAlJ5cuOAPbH2Gw4XKYJtLpz&q=sloth&limit=10&offset=0&rating=G&lang=en";
+
     //ajax call
     $.ajax({
         url: queryURL,
