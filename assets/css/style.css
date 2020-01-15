@@ -12,6 +12,20 @@ body{
     height: auto;
     position: relative;
 }
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+  .clearfix { display: inline-block; }
+  /* start commented backslash hack \*/
+  * html .clearfix { height: 1%; }
+  .clearfix { display: block; }
+  /* close commented backslash hack */
+
 #formdiv{
     position:absolute;
     top:0px;
@@ -29,7 +43,17 @@ body{
 }
 .animal{
     background-color: cyan;
+    opacity: 0.5;
     height: 40px;
     font-size: 20px;
     margin: 5px;
+}
+#gifdisplay{
+    padding-top:80px;
+}
+.pictureframe {
+    max-width:380px;
+    width: auto;
+    float: left;
+    margin: 10px;
 }

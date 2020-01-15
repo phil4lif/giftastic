@@ -19,6 +19,7 @@ $(document).ready(function () {
             //writes a for loop that will create a div with an image for each of the results
             for (var i = 0; i < results.length; i++) {
                 var gifDiv = $("<div>");
+                gifDiv.addClass("pictureframe")
                 var rating = results[i].rating;
                 var p = $("<p>").text("Rating: " + rating);
                 var animalImage = $("<img>");
