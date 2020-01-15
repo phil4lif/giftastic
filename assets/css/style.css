@@ -1,0 +1,33 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    padding: 40px;
+}
+#container{
+    border: solid 2px papayawhip;
+    width: 700px;
+    height: 500px;
+    position: relative;
+}
+#formdiv{
+    position:absolute;
+    top:0px;
+    right:0px;
+    border: solid 3px papayawhip;
+}
+#animalbuttons{
+    color: black;
+    background-color: cadetblue;
+    font-size: 20px;
+    margin: 5px;
+    padding: 20px;
+    height: 100px;
+    width: 700px;
+}
+.animal{
+    background-color: cyan;
+    height: 40px;
+    font-size: 20px;
+    margin: 5px;
+}
