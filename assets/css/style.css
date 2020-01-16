@@ -25,7 +25,16 @@ body{
   * html .clearfix { height: 1%; }
   .clearfix { display: block; }
   /* close commented backslash hack */
-
+#animalbuttons{
+    position: relative;
+    color: black;
+    border: solid 2px papayawhip;
+    font-size: 20px;
+    margin-bottom: 5px;
+    padding: 10px;
+    min-height: 100px;
+    width: 1000px;
+}
 #formdiv{
     position:absolute;
     top:0px;
@@ -35,24 +44,24 @@ body{
 }
 .favoritesdiv{
     position: absolute;
-    top: 100px;
-    right:0px;
-    min-width: 166px;
-    min-height: 100px;
-    width: auto;
-    height: auto;
+    top: 30px;
+    left: 0px;
+    width: 300px;
+    height: 200px;
+    
     border: solid 2px papayawhip;
     text-align: center;
-    margin-left: 10px;
+    overflow:auto;
+    
 }
-#animalbuttons{
-    color: black;
-    border: solid 2px papayawhip;
-    font-size: 20px;
-    margin-bottom: 5px;
-    padding: 10px;
-    min-height: 100px;
-    width: 1000px;
+#favtext{
+    text-align: center;
+    font-weight: 700;
+    font-size: 24px;
+    background-color: papayawhip;
+    width: 300px;
+    height:30px;
+
 }
 .animal{
     background-color: cyan;
@@ -67,7 +76,7 @@ body{
     opacity: 0.8;
 }
 #gifdisplay{
-    padding-top:80px;
+    padding-top:200px;
 }
 .pictureframe {
     max-width:600px;
