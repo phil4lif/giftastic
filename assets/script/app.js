@@ -92,7 +92,13 @@ $(document).ready(function () {
     $(document).on("click", ".animal", displayGifs);
     //Make the favorite button add the gif to a different favorite
     $(document).on("click", ".favorite",function(){
-        var favorite = $(this).attr("data-still")
+        var favorite = $("<img>").attr("src", $(this).attr("data-still"))
+        favorite.attr("data-state", "still");
+        favorite.attr("data-animate", $(this).attr("data-animate"))
+        favorite.attr("data-still", $(this).attr("data-still"))
+        console.log(favorite);
+        $("#favoritesdiv").prepend(favorite);
+
     })
     //call the renderbuttons func to scan the array and add the new animal
     renderButtons();
