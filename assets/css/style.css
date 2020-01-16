@@ -52,20 +52,17 @@ body{
     left: 0px;
     width: 400px;
     height: 200px;
-    
     border: solid 2px papayawhip;
     text-align: center;
-    overflow:auto;
-    
+    overflow:auto;   
 }
 #favtext{
     text-align: center;
     font-weight: 700;
     font-size: 24px;
     background-color: papayawhip;
-    width: 400px;
+    max-width: 400px;
     height:30px;
-
 }
 .animal{
     background-color: papayawhip;
@@ -104,29 +101,79 @@ body{
         max-width: 440px;
         width: auto;
     }
+    .favoritesdiv{
+        top: 30px;
+        max-width:400px;
+        min-width:200px;
+        width: 100%;
+        height: 200px;
+        border: solid 2px papayawhip;
+        overflow:auto;
+        margin-bottom: 5px;   
+    }
+    #favtext{
+        position:absolute;
+        top:100px;
+        left: 10%;
+        min-width:200px;
+        text-align: center;
+        font-weight: 700;
+        width: 80%;
+        font-size: 24px;
+        background-color: papayawhip;
+        height:30px;
+    }
+    #gifdisplay{
+        padding-top: 350px;
+    }
+    #formdiv{
+        top: 5px;
+        width: 80%;
+        min-width: 200px;
+        left: 10%;
+        
+    }
 }
 @media screen and (min-width: 481px) and (max-width: 640px){
     body{
         padding: 10px;
     }
     #container{
-        border: solid 2px papayawhip;
         max-width: 480px;
-        min-height: 200px;
         width: auto;
-        height: auto;
-        position: relative;
     }
     #animalbuttons{
-        color: black;
-        border: solid 2px papayawhip;
-        font-size: 20px;
-        margin-bottom: 5px;
-        padding: 5px;
-        min-height: 100px;
         max-width: 480px;
         width: auto;
     }
+    #formdiv{
+        top: 5px;
+        width: 80%;
+        min-width: 200px;
+        left: 10%;
+        }
+        .favoritesdiv{
+            top: 30px;
+            max-width:400px;
+            min-width:200px;
+            width: 100%;
+            height: 200px;
+            border: solid 2px papayawhip;
+            overflow:auto;
+            margin-bottom: 5px;   
+        }
+        #favtext{
+            position:absolute;
+            top:100px;
+            left: 10%;
+            min-width:200px;
+            text-align: center;
+            font-weight: 700;
+            width: 80%;
+            font-size: 24px;
+            background-color: papayawhip;
+            height:30px;
+        }
 }
 
 @media screen and (min-width: 641px) and (max-width: 768px){
