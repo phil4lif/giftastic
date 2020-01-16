@@ -34,9 +34,9 @@ body{
 }
 #animalbuttons{
     color: black;
-    background-color: cadetblue;
+    border: solid 2px papayawhip;
     font-size: 20px;
-    margin: 5px;
+    margin-bottom: 5px;
     padding: 10px;
     min-height: 100px;
     width: 1000px;
@@ -52,7 +52,7 @@ body{
     padding-top:80px;
 }
 .pictureframe {
-    max-width:400px;
+    max-width:600px;
     width: auto;
     float: left;
     margin: 10px;
