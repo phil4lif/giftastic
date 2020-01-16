@@ -18,6 +18,10 @@ $(document).ready(function () {
             console.log(response.data);
             //writes a for loop that will create a div with an image for each of the results
             for (var i = 0; i < results.length; i++) {
+                var favButton= $("<button>");
+                favButton.addClass("favorite")
+                favButton.attr("data-still", results[i].images.fixed_height_still.url)
+                favButton.text("Favorite")
                 var gifDiv = $("<div>");
                 gifDiv.addClass("pictureframe")
                 var rating = results[i].rating;
@@ -33,6 +37,7 @@ $(document).ready(function () {
                 //add a class to the animal Image
                 animalImage.addClass("animalimage")
                 //Add both p and animalImage to the gifDiv
+                gifDiv.prepend(favButton);
                 gifDiv.prepend(p);
                 gifDiv.prepend(animalImage);
                 //prepend the gifDiv to the gifdisplay element
@@ -85,6 +90,10 @@ $(document).ready(function () {
     })
 
     $(document).on("click", ".animal", displayGifs);
+    //Make the favorite button add the gif to a different favorite
+    $(document).on("click", ".favorite",function(){
+        var favorite = $(this).attr("data-still")
+    })
     //call the renderbuttons func to scan the array and add the new animal
     renderButtons();
 });

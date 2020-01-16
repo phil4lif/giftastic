@@ -48,6 +48,11 @@ body{
     font-size: 20px;
     margin: 5px;
 }
+.favorite{
+    margin: 2px;
+    background-color: cyan;
+    opacity: 0.8;
+}
 #gifdisplay{
     padding-top:80px;
 }
@@ -57,14 +62,24 @@ body{
     float: left;
     margin: 10px;
 }
-
-@media screen and (max-width: 640px){
+@media screen and (max-width: 480px){
+    body{
+        padding: 5px;
+    }
+    #container{
+        max-width: 440px;
+    }
+    #animalbuttons{
+        max-width: 440px;
+    }
+}
+@media screen and (min-width: 481px) and (max-width: 640px){
     body{
         padding: 10px;
     }
     #container{
         border: solid 2px papayawhip;
-        max-width: 500px;
+        max-width: 480px;
         min-height: 200px;
         height: auto;
         position: relative;
@@ -76,7 +91,7 @@ body{
         margin-bottom: 5px;
         padding: 5px;
         min-height: 100px;
-        max-width: 500px;
+        max-width: 480px;
     }
 }
 
@@ -86,7 +101,7 @@ body{
     }
     #container{
         border: solid 2px papayawhip;
-        max-width: 668px;
+        max-width: 640px;
         min-height: 200px;
         height: auto;
         position: relative;
@@ -98,7 +113,7 @@ body{
         margin-bottom: 5px;
         padding: 5px;
         min-height: 100px;
-        max-width: 668px;
+        max-width: 640px;
     }
 }
 
@@ -108,7 +123,7 @@ body{
     }
     #container{
         border: solid 2px papayawhip;
-        max-width: 900px;
+        max-width: 768px;
         min-height: 400px;
         height: auto;
         position: relative;
@@ -121,7 +136,7 @@ body{
         margin-bottom: 5px;
         padding: 5px;
         min-height: 100px;
-        max-width: 900px;
+        max-width: 768px;
         margin-right: 10px;
 
     }
