@@ -57,3 +57,72 @@ body{
     float: left;
     margin: 10px;
 }
+
+@media screen and (max-width: 640px){
+    body{
+        padding: 10px;
+    }
+    #container{
+        border: solid 2px papayawhip;
+        max-width: 500px;
+        min-height: 200px;
+        height: auto;
+        position: relative;
+    }
+    #animalbuttons{
+        color: black;
+        border: solid 2px papayawhip;
+        font-size: 20px;
+        margin-bottom: 5px;
+        padding: 5px;
+        min-height: 100px;
+        max-width: 500px;
+    }
+}
+
+@media screen and (min-width: 641px) and (max-width: 768px){
+    body{
+        padding: 10px;
+    }
+    #container{
+        border: solid 2px papayawhip;
+        max-width: 668px;
+        min-height: 200px;
+        height: auto;
+        position: relative;
+    }
+    #animalbuttons{
+        color: black;
+        border: solid 2px papayawhip;
+        font-size: 20px;
+        margin-bottom: 5px;
+        padding: 5px;
+        min-height: 100px;
+        max-width: 668px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1080px){
+    body{
+        padding: 10px;
+    }
+    #container{
+        border: solid 2px papayawhip;
+        max-width: 900px;
+        min-height: 400px;
+        height: auto;
+        position: relative;
+        margin-right: 10px;
+    }
+    #animalbuttons{
+        color: black;
+        border: solid 2px papayawhip;
+        font-size: 20px;
+        margin-bottom: 5px;
+        padding: 5px;
+        min-height: 100px;
+        max-width: 900px;
+        margin-right: 10px;
+
+    }
+}

@@ -32,9 +32,10 @@ $(document).ready(function () {
                 animalImage.attr("data-still", results[i].images.fixed_height_still.url);
                 //add a class to the animal Image
                 animalImage.addClass("animalimage")
+                //Add both p and animalImage to the gifDiv
                 gifDiv.prepend(p);
                 gifDiv.prepend(animalImage);
-
+                //prepend the gifDiv to the gifdisplay element
                 $("#gifdisplay").prepend(gifDiv);
 
             }
