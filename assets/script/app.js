@@ -86,7 +86,7 @@ $(document).ready(function () {
         var newAnimal = $("#input").val().trim();
         //add the new animal inpput to the animalButtons array
         animalButtons.push(newAnimal);
-        console.log(animalButtons);
+        $("#input").val(" ")
         renderButtons();
     })
 
