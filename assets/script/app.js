@@ -21,6 +21,7 @@ $(document).ready(function () {
                 var favButton= $("<button>");
                 favButton.addClass("favorite")
                 favButton.attr("data-still", results[i].images.fixed_height_still.url)
+                favButton.attr("data-animate", results[i].images.fixed_height.url)
                 favButton.text("Favorite")
                 var gifDiv = $("<div>");
                 gifDiv.addClass("pictureframe")
@@ -94,9 +95,9 @@ $(document).ready(function () {
     $(document).on("click", ".favorite",function(){
         var favorite = $("<img>").attr("src", $(this).attr("data-still"))
         favorite.attr("data-state", "still");
-        favorite.attr("data-animate", $(this).attr("data-animate"))
-        favorite.attr("data-still", $(this).attr("data-still"))
-        favorite.addClass("animalimage")
+        favorite.attr("data-animate", $(this).attr("data-animate"));
+        favorite.attr("data-still", $(this).attr("data-still"));
+        favorite.addClass("animalimage");
         console.log(favorite);
         var favDiv = $("<div>");
         favDiv.prepend(favorite);
