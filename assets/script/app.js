@@ -96,10 +96,13 @@ $(document).ready(function () {
         favorite.attr("data-state", "still");
         favorite.attr("data-animate", $(this).attr("data-animate"))
         favorite.attr("data-still", $(this).attr("data-still"))
+        favorite.addClass("animalimage")
         console.log(favorite);
-        $("#favoritesdiv").prepend(favorite);
+        var favDiv = $("<div>");
+        favDiv.prepend(favorite);
+        $(".favoritesdiv").prepend(favDiv);
 
-    })
+    });
     //call the renderbuttons func to scan the array and add the new animal
     renderButtons();
 });
