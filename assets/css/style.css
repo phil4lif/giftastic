@@ -79,7 +79,7 @@ body{
     opacity: 0.8;
 }
 #gifdisplay{
-    padding-top:200px;
+    padding-top:300px;
 }
 .pictureframe {
     max-width:600px;
@@ -185,6 +185,9 @@ body{
     body{
         padding: 10px;
     }
+    #gifdisplay{
+        padding-top: 350px;
+    }
     #container{
         max-width: 640px;
         width: auto;
@@ -198,6 +201,9 @@ body{
 @media screen and (min-width: 769px) and (max-width: 1180px){
     body{
         padding: 10px;
+    }
+    #gifdisplay{
+        padding-top: 350px;
     }
     #container{
         max-width: 1000px;

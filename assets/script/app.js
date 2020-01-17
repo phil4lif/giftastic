@@ -18,7 +18,7 @@ $(document).ready(function () {
             console.log(response.data);
             //writes a for loop that will create a div with an image for each of the results
             for (var i = 0; i < results.length; i++) {
-                var favButton= $("<button>");
+                var favButton = $("<button>");
                 favButton.addClass("favorite")
                 favButton.attr("data-still", results[i].images.fixed_height_still.url)
                 favButton.attr("data-animate", results[i].images.fixed_height.url)
@@ -92,7 +92,7 @@ $(document).ready(function () {
 
     $(document).on("click", ".animal", displayGifs);
     //Make the favorite button add the gif to a different favorite
-    $(document).on("click", ".favorite",function(){
+    $(document).on("click", ".favorite", function () {
         var favorite = $("<img>").attr("src", $(this).attr("data-still"))
         favorite.attr("data-state", "still");
         favorite.attr("data-animate", $(this).attr("data-animate"));
@@ -101,9 +101,20 @@ $(document).ready(function () {
         console.log(favorite);
         var favDiv = $("<div>");
         favDiv.prepend(favorite);
+        //make a variable to go to local storage
+        var favString = JSON.stringify(favorite);
+        console.log(favString);
         $(".favoritesdiv").prepend(favDiv);
-
+        localStorage.setItem("favorites", favString);
+        localStorage.setItem("name", "phil")
     });
     //call the renderbuttons func to scan the array and add the new animal
     renderButtons();
+    //getting some objects from local storage to put back in the favorites div
+    var myFaves = JSON.parse(localStorage.getItem("favorites"));
+   
+    console.log(myFaves);
+    $(".favoritesdiv").prepend(myFaves);
+    $(".favoritesdiv").prepend(localStorage.getItem("name"));
+
 });
