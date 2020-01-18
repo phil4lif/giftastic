@@ -20,7 +20,7 @@ $(document).ready(function () {
             for (var i = 0; i < favoritesArr.length; i++) {
                 favoriteString = favoriteString + favoritesArr[i] + ","
             }
-            var queryURL = "http://api.giphy.com/v1/gifs?api_key=WVMqS6EHSAlJ5cuOAPbH2Gw4XKYJtLpz&ids=" + favoriteString
+            var queryURL = "https://api.giphy.com/v1/gifs?api_key=WVMqS6EHSAlJ5cuOAPbH2Gw4XKYJtLpz&ids=" + favoriteString
             $.ajax({
                 url: queryURL,
                 method: "GET"
