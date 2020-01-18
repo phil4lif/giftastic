@@ -1,13 +1,72 @@
 //make an array of starting buttons
 var animalButtons = ["wolf", "elephant", "dog", "sloth", "jaguar", "african painted dog"]
-
+var favoritesArr = [];
 //document ready function
 $(document).ready(function () {
     console.log("ready!");
+    // console.log(localStorage)
+    // $(".favoritesdiv").prepend(JSON.parse(localStorage.getItem("favorites")));
+    // // console.log(localStorage.getItem("name"));
+    // $(".favoritesdiv").prepend("Hello World");
+    // $(".favoritesdiv").prepend(localStorage.getItem("name"));
+    //http://api.giphy.com/v1/gifs?api_key=WVMqS6EHSAlJ5cuOAPbH2Gw4XKYJtLpz&ids=35HUEK51PR76evL4Hp,1fgKK9mUcG4E7faggJ
     //write a function to display the gifs
+    function loadFavorites() {
+        var localData = JSON.parse(localStorage.getItem("favorites"))
+        if (localData.length > 0) {
+            favoritesArr = localData;
+
+            var favoriteString = ""
+            for (var i = 0; i < favoritesArr.length; i++) {
+                favoriteString = favoriteString + favoritesArr[i] + ","
+            }
+            var queryURL = "http://api.giphy.com/v1/gifs?api_key=WVMqS6EHSAlJ5cuOAPbH2Gw4XKYJtLpz&ids=" + favoriteString
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function (response) {
+                console.log(response)
+                var results = response.data;
+                console.log(results)
+                for (var i = 0; i < results.length; i++) {
+                    // var animalImage = $("<img>");
+                    // animalImage.attr("src", results[i].images.fixed_height_still.url);
+                    // //add a data-state=still to the images
+                    // animalImage.attr("data-state", "still")
+                    // animalImage.attr("data-id", results[i].id)
+
+                    // //add another attribute that stores the animated link
+                    // animalImage.attr("data-animate", results[i].images.fixed_height.url)
+                    // //add another attribte that stores the still link
+                    // animalImage.attr("data-still", results[i].images.fixed_height_still.url); 
+                    // $(".favoritesdiv").prepend(animalImage);
+
+                    
+
+                    var favorite = $("<img>").attr("src", results[i].images.fixed_height_still.url);
+                    favorite.attr("data-state", "still");
+                    favorite.attr("data-animate", results[i].images.fixed_height.url);
+                    favorite.attr("data-still", results[i].images.fixed_height_still.url);
+                    favorite.attr("data-id", results[i].id);
+                    favorite.addClass("animalimage");
+                    console.log(favorite);
+                    var favDiv = $("<div>");
+                    favDiv.prepend(favorite);
+
+                    //make a variable to go to local storage
+                    // var favString = JSON.stringify(favorite);
+                    // console.log(favString);
+                    $(".favoritesdiv").prepend(favDiv);
+
+                }
+            })
+
+        }
+    }
+    
     function displayGifs() {
         var animal = $(this).attr("data-name");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?&api_key=WVMqS6EHSAlJ5cuOAPbH2Gw4XKYJtLpz&q=" + animal + "&limit=10&offset=0&rating=G&lang=en";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?&api_key=WVMqS6EHSAlJ5cuOAPbH2Gw4XKYJtLpz&q=" + animal + "&limit=10&offset=0&rating=g&lang=en";
 
         //ajax call
         $.ajax({
@@ -22,6 +81,7 @@ $(document).ready(function () {
                 favButton.addClass("favorite")
                 favButton.attr("data-still", results[i].images.fixed_height_still.url)
                 favButton.attr("data-animate", results[i].images.fixed_height.url)
+                favButton.attr("data-id", results[i].id)
                 favButton.text("Favorite")
                 var gifDiv = $("<div>");
                 gifDiv.addClass("pictureframe")
@@ -31,6 +91,8 @@ $(document).ready(function () {
                 animalImage.attr("src", results[i].images.fixed_height_still.url);
                 //add a data-state=still to the images
                 animalImage.attr("data-state", "still")
+                animalImage.attr("data-id", results[i].id)
+
                 //add another attribute that stores the animated link
                 animalImage.attr("data-animate", results[i].images.fixed_height.url)
                 //add another attribte that stores the still link
@@ -97,24 +159,25 @@ $(document).ready(function () {
         favorite.attr("data-state", "still");
         favorite.attr("data-animate", $(this).attr("data-animate"));
         favorite.attr("data-still", $(this).attr("data-still"));
+        favorite.attr("data-id", $(this).attr("data-id"));
         favorite.addClass("animalimage");
-        console.log(favorite);
+        // console.log(favorite);
         var favDiv = $("<div>");
         favDiv.prepend(favorite);
+        console.log($(this).attr("data-id"))
         //make a variable to go to local storage
-        var favString = JSON.stringify(favorite);
-        console.log(favString);
+        // var favString = JSON.stringify(favorite);
+        // console.log(favString);
         $(".favoritesdiv").prepend(favDiv);
-        localStorage.setItem("favorites", favString);
-        localStorage.setItem("name", "phil")
+        // favoritesArr.push()
+        // console.log($(this).val())
+        favoritesArr.push($(this).attr("data-id"))
+        localStorage.setItem("favorites", JSON.stringify(favoritesArr));
+        // console.log(JSON.stringify(favorite));
+        // console.log(localStorage);
+
     });
     //call the renderbuttons func to scan the array and add the new animal
     renderButtons();
-    //getting some objects from local storage to put back in the favorites div
-    var myFaves = JSON.parse(localStorage.getItem("favorites"));
-   
-    console.log(myFaves);
-    $(".favoritesdiv").prepend(myFaves);
-    $(".favoritesdiv").prepend(localStorage.getItem("name"));
-
+    loadFavorites();
 });
